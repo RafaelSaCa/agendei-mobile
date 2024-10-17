@@ -31,7 +31,8 @@ export const styles = {
    footer:{
      alignItems:"center",
      justifyContent: "center",
-     flexDirection:"row"
+     flexDirection:"row",     
+     marginBottom: 100
    },
 
    footerLink:{
