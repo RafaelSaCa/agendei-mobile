@@ -1,7 +1,8 @@
 import { Text, View } from "react-native";
 import { styles } from "./profile.style";
 
-function Profile() {
+
+export function Profile(){
   return (
     <>
       <View style={styles.container}>
@@ -17,6 +18,5 @@ function Profile() {
       </View>
     </>
   );
-}
 
-export default Profile;
+}
