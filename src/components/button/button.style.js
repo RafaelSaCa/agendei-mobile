@@ -6,6 +6,7 @@ export const styles = {
     width: "100%",
     borderRadius: 6,
     padding: 12,
+    marginTop: 18
   },
 
   primary:{

@@ -4,7 +4,7 @@ export const styles = {
   container: {
     flex: 1,
     backgroundColor: COLORS.white,
-    marginTop: 80,
+    paddingTop:20,  
     paddingLeft: 20,
     paddingRight: 20,
     justifyContent: "space-between",
