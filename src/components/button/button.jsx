@@ -3,17 +3,13 @@ import { Alert } from "react-native";
 import { styles } from "./button.style";
 
 function Button(props) {
-  function TesteClick() {
-    Alert.alert("Clicou no botao");
-  }
 
   return (
-    <TouchableOpacity style={[styles.btn, 
-                      props.theme == "danger" ? styles.danger : styles.primary]}
-                       
-            onPress={TesteClick}>
+    <TouchableOpacity 
+        style={[styles.btn, props.theme == "danger" ? styles.danger : styles.primary]}
+        onPress={props.onPress}>
 
-      <Text style={styles.text}>{props.text}</Text>
+       <Text style={styles.text}>{props.text}</Text>
     </TouchableOpacity>
   );
 }
