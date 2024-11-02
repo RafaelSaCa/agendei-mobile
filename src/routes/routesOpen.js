@@ -6,16 +6,17 @@ const Stack = createNativeStackNavigator();
 
 function RoutesOpen(){
   return <Stack.Navigator>
-    
+        
         <Stack.Screen name="login" component={Login}
         options={{
           headerShown: false
         }}/>
-
         <Stack.Screen name="account" component={Account}
-         options={{
+        options={{
           headerShown: false
         }}/>
+        
+
       </Stack.Navigator>
 }
 
