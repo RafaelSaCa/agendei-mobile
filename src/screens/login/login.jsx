@@ -4,10 +4,12 @@ import { styles } from "./login.style";
 import Button from "../../components/button/button";
 import { useState } from "react";
 import api from "../../constants/api.js";
-
+import {AuthContext} from "../../context/auth.js";
+import { useContext } from "react";
 
 export function Login(props) {
 
+  const {setUser} = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +18,7 @@ export function Login(props) {
         const response = await api.post("/users/login", {email, password});
 
         if (response.data){          
-          console.log(response.data)
+          setUser(response.data)// passa os dados do login para o contexto,que libera as rotas privadas
 
         }
 
