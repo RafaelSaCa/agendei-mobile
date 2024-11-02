@@ -1,11 +1,13 @@
+import { useContext } from "react";
 import RoutesOpen from "./routesOpen.js";
 import RoutesPrivate from "./routesPrivate.js";
+import {AuthContext} from "../context/auth.js";
 
 function Routes() {
 
-  const user = {
-    // id_user: 1,
-  }
+  const {user} = useContext(AuthContext);
+
+
   return user.id_user ? <RoutesPrivate/> : <RoutesOpen/>
 
 }
