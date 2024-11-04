@@ -17,8 +17,12 @@ export function Login(props) {
       try {
         const response = await api.post("/users/login", {email, password});
 
-        if (response.data){          
-          setUser(response.data)// passa os dados do login para o contexto,que libera as rotas privadas
+        if (response.data){       
+            //injeta o token do usuário no header da api.
+            api.defaults.headers.common['Authorization'] = "Bearer " + response.data.token;
+            
+           // passa os dados do login para o contexto,que libera as rotas privadas
+           setUser(response.data);
 
         }
 
