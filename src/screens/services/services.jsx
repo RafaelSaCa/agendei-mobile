@@ -1,9 +1,11 @@
 
-import { FlatList, Image, Text, View } from "react-native";
+import { Alert, FlatList, Image, Text, View } from "react-native";
 import { styles } from "./services.style.js"
 import icon from "../../constants/icon.js";
-import {doctors_services} from "../../constants/data.js"
-import Service from "../../components/service/service.jsx"
+import Service from "../../components/service/service.jsx";
+import api from "../../constants/api.js";
+import { useEffect, useState } from "react";
+
 
 export function Services(props) {
   
@@ -12,11 +14,39 @@ export function Services(props) {
   const specialty = props.route.params.specialty;
   const iconDoctor = props.route.params.icon;
 
+
+  const [doctorServices, setDoctorServices]= useState([]);
+
+
   function ClickService(id_service){
-    props.navigation.navigate("schedule",{id_doctor, id_service });
+    props.navigation.navigate("schedule", {id_doctor, id_service });
   }
 
+  async function LoadServices(){
+    try {
+      const response = await api.get("/doctors/" + id_doctor + "/services");
 
+      if (response.data){          
+          setDoctorServices(response.data);
+
+      }
+
+    } catch (error) {
+      if (error.response?.data.error)
+         Alert.alert(error.response.data.error)
+        
+      else
+         Alert.alert("Ocorreu um erro. Tente novamente mais tarde!");
+
+    }
+  }
+    //executa a função quando a tela é carregada
+    useEffect(()=>{
+      LoadServices();
+    }, []);
+
+
+    
   return (
         <>
         <View style={styles.container}>
@@ -28,11 +58,11 @@ export function Services(props) {
           </View>
 
 
-           <FlatList data={doctors_services}
+           <FlatList data={doctorServices}
                      keyExtractor={(serv) => serv.id_service}
                      showsVerticalScrollIndicator={false}
-                     renderItem={({item}) => {
-                        return <Service id_service= {item.id_service}
+                     renderItem={({ item }) => {
+                        return <Service id_service={item.id_service}
                                 description={item.description}
                                 price = {item.price}
                                 onPress={ClickService}/>
