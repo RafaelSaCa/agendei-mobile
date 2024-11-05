@@ -38,6 +38,8 @@ export function Main() {
               },
             }}
           />
+
+
           <Tab.Screen name="Calendar" component={Calendar} options={{
               headerTitleAlign: "center",
               headerTitle: () => {
@@ -49,6 +51,7 @@ export function Main() {
                 );
               },
               tabBarShowLabel: false,
+              unmountOnBlur: true,
               tabBarIcon: ({ focused }) => {
                 return (
                   <Image
@@ -63,6 +66,8 @@ export function Main() {
               },
             }}
           />
+
+
           <Tab.Screen name="Profile" component={Profile} options={{
               headerTitleAlign: "center",
               headerTitle: () => {
