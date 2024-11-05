@@ -50,7 +50,7 @@ export function Home(props) {
                      renderItem={({item}) => {
                         return <Doctor id_doctor={item.id_doctor}
                               name={item.name} 
-                              icon={item.icon} //M OU F
+                              icon={item.icon} 
                               specialty={item.specialty}
                               onPress={ClickDoctor}
                               />
