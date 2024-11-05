@@ -21,12 +21,11 @@ function Schedule(props) {
     async function ClickBooking(){
         try {
           const response = await api.post("/appointments",{
-            id_doctor, id_service, booking_Date: selectedDate , booking_Hour: selectedHour
+            id_doctor, id_service, booking_date: selectedDate , booking_hour: selectedHour
           });
     
           if (response.data?.id_appointment){   
-            console.log(response.data)   
-              props.navigation.popToTop();
+            props.navigation.popToTop();
     
           }
     
