@@ -8,6 +8,7 @@ const Stack = createNativeStackNavigator();
 
 function RoutesPrivate(){
   return <Stack.Navigator>
+
         <Stack.Screen name="main" component={Main}
          options={{
           headerShown: false,
@@ -28,7 +29,7 @@ function RoutesPrivate(){
 
         <Stack.Screen name="schedule" component={Schedule}
          options={{
-          headerTitle: "Reserva",
+          headerTitle: "Agendamento",
             headerTitleAlign: "center",
             headerShadowVisible: false,
             headerTintColor: COLORS.blue,
