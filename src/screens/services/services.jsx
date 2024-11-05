@@ -28,7 +28,6 @@ export function Services(props) {
 
       if (response.data){          
           setDoctorServices(response.data);
-
       }
 
     } catch (error) {
